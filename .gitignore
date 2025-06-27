@@ -1,0 +1,31 @@
+# 忽略所有文件和文件夹
+/*
+
+# 不忽略src文件夹
+!/src/
+
+# 忽略Gradle相关文件
+.gradle/
+build/
+gradle/
+gradlew
+gradlew.bat
+
+# 忽略IDE相关文件
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+
+# 忽略编译生成的文件
+*.class
+*.jar
+out/
+
+# 不忽略.gitignore文件本身
+!.gitignore
+
+# 不忽略build.gradle和settings.gradle
+!build.gradle
+!settings.gradle
