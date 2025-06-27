@@ -1,0 +1,7 @@
+Java Launcher: C:\Program Files\BellSoft\LibericaJDK-17\bin\java.exe
+Arguments: '--inJar, C:\Users\28974\.gradle\caches\forge_gradle\minecraft_user_repo\net\minecraftforge\forge\1.20.1-47.4.2\forge-1.20.1-47.4.2-injected.jar, --outJar, C:\Users\28974\.gradle\caches\forge_gradle\minecraft_user_repo\net\minecraftforge\forge\1.20.1-47.4.2_mapped_official_1.20.1\forge-1.20.1-47.4.2_mapped_official_1.20.1.jar, --logFile, accesstransform.log, --atFile, C:\Users\28974\Desktop\CodeJar\BadMiiickey's Mods\FluidJS\build\_atJar_4\parent_at.cfg'
+Classpath:
+ - C:\Users\28974\.gradle\caches\forge_gradle\maven_downloader\net\minecraftforge\accesstransformers\8.2.1\accesstransformers-8.2.1-fatjar.jar
+Working directory: C:\Users\28974\Desktop\CodeJar\BadMiiickey's Mods\FluidJS\build\_atJar_4
+Main class: net.minecraftforge.accesstransformer.TransformerProcessor
+====================================

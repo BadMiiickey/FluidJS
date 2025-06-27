@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Specification-Title: fluidjs
+Specification-Vendor: BadMiiickey
+Specification-Version: 1
+Implementation-Title: FluidJS
+Implementation-Version: 1.0.0
+Implementation-Vendor: BadMiiickey
+Implementation-Timestamp: 2025-06-12T15:53:01+0800
+
