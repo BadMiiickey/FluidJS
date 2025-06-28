@@ -6,5 +6,5 @@ import dev.latvian.mods.kubejs.event.EventHandler;
 public interface FluidEvents {
     EventGroup GROUP = EventGroup.of("FluidEvents");
 
-    EventHandler FLUID_INTERACT_REGISTRY = GROUP.server("register", () -> FluidInteractRegistryEvent.class);
+    EventHandler FLUID_INTERACT_REGISTRY = GROUP.startup("register", () -> FluidInteractRegistryEvent.class);
 }

@@ -1,29 +1,25 @@
 package com.fluidjs.kubejs;
 
 import dev.latvian.mods.kubejs.event.EventJS;
-import dev.latvian.mods.rhino.util.HideFromJS;
-import dev.latvian.mods.rhino.util.RemapForJS;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.fluids.FluidInteractionRegistry;
+import dev.latvian.mods.kubejs.fluid.FluidStackJS;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.fluids.FluidType;
-import net.minecraftforge.registries.ForgeRegistries;
+
+import static com.fluidjs.kubejs.helper.InteractionInformationHelper.getForBlock;
+import static net.minecraftforge.fluids.FluidInteractionRegistry.*;
 
 public class FluidInteractRegistryEvent extends EventJS {
 
-    @HideFromJS
-    public FluidInteractRegistryEvent() {
+    public void create(FluidStackJS fluid, HasFluidInteraction hasInteraction, FluidInteraction FluidInteraction) {
+        FluidType fluidType = FluidTypeWrapper.of(fluid);
+        InteractionInformation interactionInformation = new InteractionInformation(hasInteraction, FluidInteraction);
 
+        addInteraction(fluidType, interactionInformation);
     }
 
-    @RemapForJS("create")
-    public void create(ResourceLocation fluid, FluidInteractionRegistry.HasFluidInteraction hasInteraction, FluidInteractionRegistry.FluidInteraction FluidInteraction) {
-        FluidType fluidType = ForgeRegistries.FLUID_TYPES.get().getValue(fluid);
-        FluidInteractionRegistry.InteractionInformation interactionInformation = new FluidInteractionRegistry.InteractionInformation(hasInteraction, FluidInteraction);
-
-        if (fluidType == null) {
-            throw new IllegalArgumentException("FluidType with resource location " + fluid + " does not exist.");
-        }
-
-        FluidInteractionRegistry.addInteraction(fluidType, interactionInformation);
+    public void createForBlock(FluidStackJS fluid, FluidStackJS interact, Block sourceTransforToBlock, Block flowingTransforToBlock) {
+        FluidType fluidType = FluidTypeWrapper.of(fluid);
+        FluidStackJS interactFluid = FluidStackJS.of(interact);
+        addInteraction(fluidType, getForBlock(interactFluid, sourceTransforToBlock, flowingTransforToBlock));
     }
 }
