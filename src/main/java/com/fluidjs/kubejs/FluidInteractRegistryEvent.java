@@ -2,7 +2,6 @@ package com.fluidjs.kubejs;
 
 import dev.latvian.mods.kubejs.event.EventJS;
 import dev.latvian.mods.kubejs.fluid.FluidStackJS;
-import dev.latvian.mods.kubejs.item.ItemStackJS;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.ItemStack;
@@ -16,46 +15,39 @@ import static net.minecraftforge.fluids.FluidInteractionRegistry.*;
 public class FluidInteractRegistryEvent extends EventJS {
 
     public void create(FluidStackJS fluid, HasFluidInteraction hasInteraction, FluidInteraction FluidInteraction) {
-        FluidType fluidType = FluidTypeWrapper.of(fluid);
+        FluidType fluidType = fluid.getFluid().getFluidType();
         InteractionInformation interactionInformation = new InteractionInformation(hasInteraction, FluidInteraction);
 
         addInteraction(fluidType, interactionInformation);
     }
 
     public void createForItem(FluidStackJS fluid, FluidStackJS interact, ItemStack itemStack) {
-        FluidType fluidType = FluidTypeWrapper.of(fluid);
-        FluidStackJS interactFluid = FluidStackJS.of(interact);
-        ItemStack item = ItemStackJS.of(itemStack);
+        FluidType fluidType = fluid.getFluid().getFluidType();
 
-        addInteraction(fluidType, getForItem(interactFluid, item));
+        addInteraction(fluidType, getForItem(interact, itemStack));
     }
 
     public void createForBlock(FluidStackJS fluid, FluidStackJS interact, Block sourceTransforToBlock, Block flowingTransforToBlock) {
-        FluidType fluidType = FluidTypeWrapper.of(fluid);
-        FluidStackJS interactFluid = FluidStackJS.of(interact);
+        FluidType fluidType = fluid.getFluid().getFluidType();
 
-        addInteraction(fluidType, getForBlock(interactFluid, sourceTransforToBlock, flowingTransforToBlock));
+        addInteraction(fluidType, getForBlock(interact, sourceTransforToBlock, flowingTransforToBlock));
     }
 
     public void createForFluid(FluidStackJS fluid, FluidStackJS interact, FluidStackJS output) {
-        FluidType fluidType = FluidTypeWrapper.of(fluid);
-        FluidStackJS interactFluid = FluidStackJS.of(interact);
-        FluidStackJS outputFluid = FluidStackJS.of(output);
+        FluidType fluidType = fluid.getFluid().getFluidType();
 
-        addInteraction(fluidType, getForFluid(interactFluid, outputFluid));
+        addInteraction(fluidType, getForFluid(interact, output));
     }
 
-    public void createForExplosion(FluidStackJS fluid, FluidStackJS interact, Level.ExplosionInteraction explosion) {
-        FluidType fluidType = FluidTypeWrapper.of(fluid);
-        FluidStackJS interactFluid = FluidStackJS.of(interact);
+    public void createForExplosion(FluidStackJS fluid, FluidStackJS interact, Level.ExplosionInteraction explosion, float strength) {
+        FluidType fluidType = fluid.getFluid().getFluidType();
 
-        addInteraction(fluidType, getForExplosion(interactFluid, explosion));
+        addInteraction(fluidType, getForExplosion(interact, explosion, strength));
     }
 
     public void createForEntity(FluidStackJS fluid, FluidStackJS interact, EntityType<? extends Entity> entityType) {
-        FluidType fluidType = FluidTypeWrapper.of(fluid);
-        FluidStackJS interactFluid = FluidStackJS.of(interact);
+        FluidType fluidType = fluid.getFluid().getFluidType();
 
-        addInteraction(fluidType, getForEntity(interactFluid, entityType));
+        addInteraction(fluidType, getForEntity(interact, entityType));
     }
 }

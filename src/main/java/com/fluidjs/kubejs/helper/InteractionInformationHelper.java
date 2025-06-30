@@ -99,7 +99,7 @@ public class InteractionInformationHelper {
     }
 
     @HideFromJS
-    public static @NotNull InteractionInformation getForExplosion(FluidStackJS interactFluid, Level.ExplosionInteraction explosion) {
+    public static @NotNull InteractionInformation getForExplosion(FluidStackJS interactFluid, Level.ExplosionInteraction explosion, float strength) {
         HasFluidInteraction hasFluidInteraction = (level, currentPos, relativePos, currentState) -> {
             FluidType interactFluidType = interactFluid.getFluid().getFluidType();
             FluidType relativeFluidType = level.getFluidState(relativePos).getFluidType();
@@ -110,7 +110,7 @@ public class InteractionInformationHelper {
             FluidType interactFluidType = interactFluid.getFluid().getFluidType();
             FluidType relativeFluidType = level.getFluidState(relativePos).getFluidType();
 
-            level.explode(null, currentPos.getX(), currentPos.getY(), currentPos.getZ(), 2.0F, explosion);
+            level.explode(null, currentPos.getX(), currentPos.getY(), currentPos.getZ(), strength, explosion);
             level.setBlockAndUpdate(currentPos, Blocks.AIR.defaultBlockState());
 
             if (interactFluidType == relativeFluidType) {
