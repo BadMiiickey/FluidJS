@@ -29,8 +29,8 @@ FluidEvents.register(event => {
     //set particular fluid you defined on the fluids interact pos and remove arg0 and arg1 fluids.
     event.createForFluid('kubejs:test_fluid_1', 'kubejs:test_fluid_2', 'minecraft:lava')
 
-    //create explosion whose mode you defined on the fluids interact pos.
-    event.createForExplosion('kubejs:test_fluid_1', 'minecraft:water', 'tnt')
+    //create explosion whose mode and strength you defined on the fluids interact pos.
+    event.createForExplosion('kubejs:test_fluid_1', 'minecraft:water', 'tnt'， 2.5)
 
     //summon entity on the fluids interact pos and remove arg0 fluid.
     event.createForEntity('kubejs:test_fluid_1', 'minecraft:water', 'minecraft:zombie')
