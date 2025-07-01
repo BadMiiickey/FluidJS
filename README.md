@@ -1,5 +1,6 @@
-Examples (all of your code should be written in startup_scripts)
+Examples
 
+//startup
 FluidEvents.register(event => {
 
     //the most literal methods that you can achieve your own ideas about fluid interact with fluid, block, and even entity!
@@ -34,4 +35,14 @@ FluidEvents.register(event => {
 
     //summon entity on the fluids interact pos and remove arg0 fluid.
     event.createForEntity('kubejs:test_fluid_1', 'minecraft:water', 'minecraft:zombie')
+})
+
+//server
+FluidEvents.source(event => {
+
+    //create new "Infinite Fluid"
+    event.create('minecraft:lava')
+
+    //remove already registered "Infinite Fluid"
+    event.remove('minecraft:water')
 })
