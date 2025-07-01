@@ -1,4 +1,4 @@
-package com.fluidjs.kubejs.helper;
+package com.fluidjs.kubejs.interaction.helper;
 
 import dev.latvian.mods.kubejs.fluid.FluidStackJS;
 import dev.latvian.mods.kubejs.level.BlockContainerJS;
