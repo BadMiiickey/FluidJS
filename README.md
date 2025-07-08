@@ -1,7 +1,7 @@
 Examples
 
 //startup
-FluidEvents.register(event => {
+FluidEvents.interact(event => {
 
     //the most literal methods that you can achieve your own ideas about fluid interact with fluid, block, and even entity!
     event.create(
