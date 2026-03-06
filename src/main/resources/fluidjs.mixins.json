@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.miiickey.fluidjs.kubejs.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "refmap": "fluidjs.refmap.json",
+  "mixins": [
+    "FluidBlockBuilderMixin",
+    "FluidBuilderMixin",
+    "LiquidBlockMixin"
+  ],
+  "client": [],
+  "server": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
